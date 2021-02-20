@@ -1,0 +1,19 @@
+export HISTSIZE=500
+
+export LC_ALL="ko_KR.UTF-8"
+export LANG="ko_KR.UTF-8"
+
+alias cds='cd /tmp/mnt/usb/scripts'
+alias cdz='cd /tmp/mnt/usb/scripts/tmp_zone_ip'
+alias cdu='cd /tmp/mnt/usb'
+alias cdj='cd /jffs'
+alias cdo='cd /opt'
+
+alias zs='/tmp/mnt/usb/scripts/zs'
+alias zp='/tmp/mnt/usb/scripts/zp'
+alias c='/tmp/mnt/usb/scripts/c'
+
+alias   d='date "+%Y/%m/%d (%A) %r"'
+alias   m='more'
+alias   h='history'
+

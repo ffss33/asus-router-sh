@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# 현재 상태를 터미널 화면에에 출력
+
+
+# 211_cur_sts.sh 파일 읽어오기
+_CUR_STS_FILE="$(dirname "$(readlink -f "$0")")/211_cur_sts.sh"
+
+
+source "$_CUR_STS_FILE"
+
+FUNC_MAKE_CURRENT_STATE_STR
+
+echo -e "${_CURRENT_STATE_STR}"
+
+
+
