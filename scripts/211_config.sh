@@ -16,14 +16,14 @@ _SWAP_USE_FLAG=1          #변경시 리부팅 필요
 
 
 #======================================================================
-#국가별 IP를 차단하는 기능. 해당 국가의 해커 방지
+#국가별 IP를 차단하는 기능. 해당 국가로부터 유입되는 해킹 차단
 #211_zone_ip.sh
 #======================================================================
 #211_zone_ip.sh 실행 여부
 _ZONE_USE_FLAG=1          #변경시 리부팅 필요
 
 #/jffs/syslog.log 파일에 로그를 남길 것인지 여부
-_ZONE_DROP_LOG_USE_FLAG=0      #실시간 적용
+_ZONE_DROP_LOG_USE_FLAG=1      #실시간 적용
 _ZONE_ACCEPT_LOG_USE_FLAG=0    #실시간 적용
 
 # IP 차단할 국가. 많아질수록 공유기 느려진다.
@@ -56,7 +56,7 @@ _TERRITORY_CODE=""               #이 기능을 사용하지 않을 경우 설�
 # wl -i $(nvram get wl0_ifname) txpwr_target_max
 # wl -i $(nvram get wl1_ifname) txpwr_target_max
 #오스트레일리아(호주)는 AU와 XX가 존재한다. XX로 설정하면 무선 강도가 가장 강하다.
-#한국에서는 200mw을 초과하면 불법이다. 
+#한국에서는 200mw을 초과하면 불법이다. 벌금을 선물받을 수 있으니 주의해야 한다.
 #location_code=XX #2.4G : 27.00dBm / 501.19mw #5G : 26.00dBm / 398.11mw
 #location_code=AU #2.4G : 23.50dBm / 223.87mw #5G : 20.50dBm / 112.20mw
 #location_code=KR #2.4G : 23.50dBm / 223.87mw #5G : 20.50dBm / 112.20mw
@@ -151,9 +151,9 @@ _TOKEN3="222222222:CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC"
 #(ex) _WIFI_CONN_SEND1="1,0,1" -> _MAC_OR_DNAME1의 연결상태를 _CHATID1, _CHATID3에 전송, _CHATID2에는 전송안함
 #--------------------------------------
 _WIFI_CONN_SEND1="1,1,1" 
-_WIFI_CONN_SEND2="1,0,1"
-_WIFI_CONN_SEND3="1,1,0"
-_WIFI_CONN_SEND4="1,1,0"
+_WIFI_CONN_SEND2="1,1,1"
+_WIFI_CONN_SEND3="1,1,1"
+_WIFI_CONN_SEND4="1,1,1"
 
 
 
