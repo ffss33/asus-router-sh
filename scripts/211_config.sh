@@ -56,11 +56,12 @@ _TERRITORY_CODE=""               #이 기능을 사용하지 않을 경우 설�
 # wl -i $(nvram get wl0_ifname) txpwr_target_max
 # wl -i $(nvram get wl1_ifname) txpwr_target_max
 #오스트레일리아(호주)는 AU와 XX가 존재한다. XX로 설정하면 무선 강도가 가장 강하다.
+#한국에서는 200mw을 초과하면 불법이다. 
 #location_code=XX #2.4G : 27.00dBm / 501.19mw #5G : 26.00dBm / 398.11mw
 #location_code=AU #2.4G : 23.50dBm / 223.87mw #5G : 20.50dBm / 112.20mw
 #location_code=KR #2.4G : 23.50dBm / 223.87mw #5G : 20.50dBm / 112.20mw
-#_LOCATION_CODE=""      #이 기능을 사용하지 않을 경우 설정
-_LOCATION_CODE="XX"   #실시간 적용. 리부팅 필요
+_LOCATION_CODE=""      #이 기능을 사용하지 않을 경우 설정
+#_LOCATION_CODE="XX"   #실시간 적용. 리부팅 필요
 #_LOCATION_CODE="US"   #실시간 적용. 리부팅 필요
 #_LOCATION_CODE="KR"   #실시간 적용. 리부팅 필요
 #_LOCATION_CODE="GD"   #실시간 적용. 리부팅 필요, 건담모드
