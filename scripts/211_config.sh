@@ -29,7 +29,6 @@ _ZONE_ACCEPT_LOG_USE_FLAG=0    #실시간 적용
 # IP 차단할 국가. 많아질수록 공유기 느려진다.
 # 변경시 rm -f ./tmp_zone_ip/*  실행 필요 
 #_ZONE_LIST="cn ru af au br pk sa sc tr tw ua vn jp"
-#_ZONE_LIST="cn ru af jp"
 _ZONE_LIST="cn ru af"
 
 #_ZONE_IP 기능을 일시적으로 중지/재시작 할 때 사용할 파일. 존재하면 중지(PURGE)(zp). 삭제하면 재시작(zs)
