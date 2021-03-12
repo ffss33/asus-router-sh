@@ -113,9 +113,12 @@ fi
 #-------------------------------------------------------------
 # 211_main.sh 스크립트들을 실행
 #-------------------------------------------------------------
-#_PWD="$(dirname "$(readlink -f "$0")")"
+_PWD="$(dirname "$(readlink -f "$0")")"
+export PATH=${PATH}:${_PWD}
 
 #-------------------------------------------------------------
 chomd 755 "/tmp/mnt/${_USB_STORAGE_LABEL}/scripts/*.sh /tmp/mnt/${_USB_STORAGE_LABEL}/scripts/c"
 "/tmp/mnt/${_USB_STORAGE_LABEL}/scripts/211_main.sh" &
+
+
 
