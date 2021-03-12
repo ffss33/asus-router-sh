@@ -177,9 +177,7 @@ FUNC_SEND_TELEGRAM_BOT(){
         _msg=$(echo -e "${3}" | curl -Gso /dev/null -w %{url_effective} --data-urlencode @- "" | sed -E 's/..(.*).../\1/')
         #echo "MESSAGE = [${_msg}]"
 
-        url="https://api.telegram.org/bot${1}/sendmessage?chat_id=${2}&text=${_msg}"
-        #echo "$url"
-        wget -O - -q "${url}"
+        curl -s -d "text=${_msg}" "https://api.telegram.org/bot${1}/sendmessage?chat_id=${2}&" > /dev/null
     fi
 }
 #######################################################################
