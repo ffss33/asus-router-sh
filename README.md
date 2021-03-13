@@ -171,10 +171,11 @@ ASUS 정식 펌웨어에서도 잘 동작한다.
        chmod -R 755 /tmp/mnt/usb/scripts/*
 
 
-    10. USB메모리가 mount되면 자동으로 실행할 스크립트를 설정하고 재부팅한다.
-       cd /tmp/mnt/usb/scripts
-       bash 211_usb_use.sh
-       reboot
+    10. 최초 설치인 경우 USB메모리가 mount되면 자동으로 usb_mount.sh 스크립트를 실행하도록 설정하게 하는 스크립트를 실행한다. 
+        bash /tmp/mnt/usb/scripts/211_usb_use.sh
+    
+    11. 공유기를 리부팅 한다.  
+        reboot
 
     11. 이제 부팅시 USB메모리가 mount 된 후에 자동으로
        /tmp/mnt/usb/scripts/usb_mount.sh  스크립트가 실행된다.
