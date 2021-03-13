@@ -123,25 +123,25 @@ do
     #-------------------------------------------------------------
     if [ "${_TELEGRAM_USE_FLAG}" = "1" ] ; then
 
-		_file="/tmp/mnt/${_USB_STORAGE_LABEL}/scripts/211_tele_rcv.sh"
-		_pidof=$(pidof 211_tele_rcv.sh)
-		if [ -f "${_file}" ] ; then
-			_lslc=$(ls -lc "${_file}")
-			if [ "${_pidof}" ] ; then
-				if [ "${_lslc}" != "${_lslc_211_tele_rcv}" ] ; then
-					kill -9 "${_pidof}"
-				fi
-			else
-				if [ "${_lslc}" = "${_lslc_211_tele_rcv}" ] ; then
-					"${_file}" &
-				fi
-				_lslc_211_tele_rcv="${_lslc}"
-			fi
-		else
-			if [ "${_pidof}" ] ; then
-				kill -9 "${_pidof}"
-			fi
-		fi
+        _file="/tmp/mnt/${_USB_STORAGE_LABEL}/scripts/211_tele_rcv.sh"
+        _pidof=$(pidof 211_tele_rcv.sh)
+        if [ -f "${_file}" ] ; then
+            _lslc=$(ls -lc "${_file}")
+            if [ "${_pidof}" ] ; then
+                if [ "${_lslc}" != "${_lslc_211_tele_rcv}" ] ; then
+                    kill -9 "${_pidof}"
+                fi
+            else
+                if [ "${_lslc}" = "${_lslc_211_tele_rcv}" ] ; then
+                    "${_file}" &
+                fi
+                _lslc_211_tele_rcv="${_lslc}"
+            fi
+        else
+            if [ "${_pidof}" ] ; then
+                kill -9 "${_pidof}"
+            fi
+        fi
     else
         _pidof=$(pidof 211_tele_rcv.sh)
         if [ "${_pidof}" ] ; then
