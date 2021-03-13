@@ -148,7 +148,7 @@ while true ; do
 					# 처음이 아닌지 확인
 					if [ $_first_flag -eq 1 ] ; then
 						# 처음인 경우 모든 명령을 SKIP한다.
-						echo "SKIP";
+						echo "SKIP"
 					else
 						if [ "${#_tele_text}" -gt 0 ] ; then
 							curl -s -d "text=COMMAND:[${_tele_text}]&chat_id=${_tele_chat_id}" "https://api.telegram.org/bot${_TELE_TOKEN}/sendMessage" > /dev/null
@@ -160,7 +160,7 @@ while true ; do
 
 							curl -s -d "text=RESULT:${_ret_str}&chat_id=${_tele_chat_id}" "https://api.telegram.org/bot${_TELE_TOKEN}/sendMessage" > /dev/null
 						else
-							echo "SKIP";
+							echo "SKIP"
 						fi
 					fi
 				fi
@@ -168,7 +168,7 @@ while true ; do
 		fi
 	done
 
-	_first_flag=0;
+	_first_flag=0
 
 	sleep "$_TELE_CHK_INTV"
 
