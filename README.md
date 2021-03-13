@@ -158,10 +158,8 @@ ASUS 정식 펌웨어에서도 잘 동작한다.
     7. 스크립트들을 복사한다. 
        cp -af asus-router-sh-main/scripts/* /tmp/mnt/usb/scripts/
 
-    6. 스크립트에 실행 권한 추가
-       chmod -R 755 /tmp/mnt/usb/scripts/*
-
-    7. 최초 설치인 경우 211_config.sh 를 수정한다. 
+    8. 211_config.sh 를 수정한다. 
+       최초 설치인 경우 211_config.sh 를 수정한다. 
 
        211_config.sh 파일이 업그레이드된 경우 백업한 파일을 참고하여 수정한다. 
 
@@ -169,19 +167,21 @@ ASUS 정식 펌웨어에서도 잘 동작한다.
           cp /tmp/mnt/usb/211_config.sh /tmp/mnt/usb/scripts/211_config.sh 
 
 
-       
+    9. 스크립트에 실행 권한 추가
+       chmod -R 755 /tmp/mnt/usb/scripts/*
 
-    8. USB메모리가 mount되면 자동으로 실행할 스크립트를 설정하고 재부팅한다.
+
+    10. USB메모리가 mount되면 자동으로 실행할 스크립트를 설정하고 재부팅한다.
        cd /tmp/mnt/usb/scripts
        bash 211_usb_use.sh
        reboot
 
-    9. 이제 부팅시 USB메모리가 mount 된 후에 자동으로
+    11. 이제 부팅시 USB메모리가 mount 된 후에 자동으로
        /tmp/mnt/usb/scripts/usb_mount.sh  스크립트가 실행된다.
 
-    10. ssh 로 접속하여 ps명령으로 usb_mount.sh 에 설정한 동작이 잘 실행되어 있는지 확인한다. 
+    12. ssh 로 접속하여 ps명령으로 usb_mount.sh 에 설정한 동작이 잘 실행되어 있는지 확인한다. 
 
-    11. 원복방법, 스크립트를 사용하지 않게 하기
+    13. 원복방법, 스크립트를 사용하지 않게 하기
         cd /tmp/mnt/usb/scripts
         bash 211_usb_not_use.sh
 
