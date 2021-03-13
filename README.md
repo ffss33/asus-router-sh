@@ -68,10 +68,10 @@ ASUS 정식 펌웨어에서도 잘 동작한다.
 
     211_tele_rcv.sh
         텔레그램으로부터 명령을 입력받아 실행하는 스크리트
-        예를 들어 텔레그램 Bot에 c 를 입력하여 전송하면 이 스크립트가 입력된 실행하여 현재 공유기의 상태를 결과로 전송한다.
-        이 스크립트는 4초 간격으로 새로 입력된 명령이 있는지 확인한다. 
+        예를 들어 텔레그램 Bot에 c 를 입력하여 전송하면 이 스크립트가 입력된 c(현재 상태를 터미널 화면에 출력하는 스크립트) 명령을 실행하여 현재 공유기의 상태를 텔레그램으로 전송한다.
+        이 스크립트는 4초 간격으로 새로 입력된 명령이 있는지 확인한다. 따라서 명령 입력후 4초 정도 후에 실행되는 경우도 있다. 
         입력된 명령이 공유기에서 그대로 실행되므로 rm * 같은 모두 삭제하는 명령등 공유기에 위험한 명령은 사용하지 않거나 주의해서 사용해야 한다. 
-        top 과 같이 계속 실행되어 유지되는 명령도 사용하지 않아야 한다. 
+        top 과 같이 계속 실행되어 유지되는 명령은 절대 사용하지 않아야 한다. 
 
 
     211_usb_use.sh
@@ -138,23 +138,38 @@ ASUS 정식 펌웨어에서도 잘 동작한다.
        id와 password는 WEB설정 접속할 때와 동일하다.
        usb메모리 디렉토리로 이동한다.
        cd /tmp/mnt/usb
+       
+       최초인 경우 스크립트 디렉토리 생성
+       mkdir scripts
+       
+       이전 파일이 존재하는 경우 삭제
+       rm main.zip
+       rm -rf asus-router-sh-main
 
        스크립트 압축 파일 다운로드 
        wget https://github.com/ffss33/asus-router-sh/archive/main.zip
        
-    5. 파일의 압축을 푼다.
+    5. 파일의 압축을 푼다. 
        unzip main.zip
        
-       스크립트 디렉토리를 이동한다. (마지막에 .점 주의)
-       mv asus-router-sh-main/scripts .
+    6. 업그레이드 설치인 경우 이전 설정 파일을 백업
+       cp /tmp/mnt/usb/scripts/211_config.sh /tmp/mnt/usb/211_config.sh 
 
-       ls 명령의 결과가 아래와 같으면 성공
-       asus-router-sh-main  main.zip scripts
+    7. 스크립트들을 복사한다. 
+       cp -af asus-router-sh-main/scripts/* /tmp/mnt/usb/scripts/
 
     6. 스크립트에 실행 권한 추가
-       chmod -R 755 /tmp/mnt/usb/scripts/*.sh
+       chmod -R 755 /tmp/mnt/usb/scripts/*
 
-    7. 211_config.sh 를 수정한다.
+    7. 최초 설치인 경우 211_config.sh 를 수정한다. 
+
+       211_config.sh 파일이 업그레이드된 경우 백업한 파일을 참고하여 수정한다. 
+
+       211_config.sh 파일이 업그레이드되지 않은 경우 백업한 파일을 복사한다. 
+          cp /tmp/mnt/usb/211_config.sh /tmp/mnt/usb/scripts/211_config.sh 
+
+
+       
 
     8. USB메모리가 mount되면 자동으로 실행할 스크립트를 설정하고 재부팅한다.
        cd /tmp/mnt/usb/scripts
