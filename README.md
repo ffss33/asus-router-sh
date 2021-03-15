@@ -193,3 +193,11 @@ ASUS 정식 펌웨어에서도 잘 동작한다.
         공유기 설정에서 공유기를 재부팅한다.
 
 
+
+
+무선 신호 강도 확인 방법
+
+wl -i $(nvram get wl0_ifname) txpwr_target_max
+wl -i $(nvram get wl1_ifname) txpwr_target_max
+
+
